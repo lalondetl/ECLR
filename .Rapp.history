@@ -1,0 +1,561 @@
+anova(model)$Sum Sq
+anova(model)[2]
+anova(model)[2]$x4
+anova(model)[2][4]
+anova(model)[2,4]
+ss = anova(model)[2]
+dim(ss)
+ss[4]
+ss
+ss[4,2]
+str(ss)
+ss = as.vector(ss)
+ss[4]
+ss
+ss[x4]
+ss$x4
+anova(model)
+str(anova(model))
+anova(model)[[2]]
+anova(model)[[2]][4]
+model
+summary(model)
+str(summary(model))
+anova(model)
+anova(model)[[2]][6]
+anova(model)[[3]][6]
+?pf
+full = lm(y~x1+x2+x3+x4+x5)#
+	reducced = lm(y~x1+x2+x3)
+p = pf(q=((anova(reduced)[[2]][6] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)
+reduced = lm(y~x1+x2+x3)
+p = pf(q=((anova(reduced)[[2]][6] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)
+p
+n
+q=((anova(reduced)[[2]][6] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6])
+q
+((anova(reduced)[[2]][6] - anova(full)[[2]][6]) / 2)
+q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6])
+q
+p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)
+p
+# RESPONSE VARIATION ##
+sigma = 10.5
+x1=rnorm(n=n,mean=m1,sd=sd1)#
+	x2=rnorm(n=n,mean=m2,sd=sd2)#
+	x3=rnorm(n=n,mean=m3,sd=sd3)#
+	x4=rnorm(n=n,mean=m4,sd=sd4)#
+	x5=rnorm(n=n,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=n,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)#
+#
+	p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)
+p
+# RESPONSE VARIATION ##
+sigma = 7.5
+x1=rnorm(n=n,mean=m1,sd=sd1)#
+	x2=rnorm(n=n,mean=m2,sd=sd2)#
+	x3=rnorm(n=n,mean=m3,sd=sd3)#
+	x4=rnorm(n=n,mean=m4,sd=sd4)#
+	x5=rnorm(n=n,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=n,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)#
+#
+	p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)
+p
+# RESPONSE VARIATION ##
+sigma = 8.5
+x1=rnorm(n=n,mean=m1,sd=sd1)#
+	x2=rnorm(n=n,mean=m2,sd=sd2)#
+	x3=rnorm(n=n,mean=m3,sd=sd3)#
+	x4=rnorm(n=n,mean=m4,sd=sd4)#
+	x5=rnorm(n=n,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=n,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)#
+#
+	p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)
+p
+M = 1000#
+#
+# CREATE SOMETHING TO SAVE RESULTS ##
+results = rep(0,M)#
+set.seed(12345)#
+#
+# PROCESS TO BE REPEATED ##
+for(i in 1:M)#
+{#
+	# GENERATE DATA FOR PREDICTORS ##
+	x1=rnorm(n=n,mean=m1,sd=sd1)#
+	x2=rnorm(n=n,mean=m2,sd=sd2)#
+	x3=rnorm(n=n,mean=m3,sd=sd3)#
+	x4=rnorm(n=n,mean=m4,sd=sd4)#
+	x5=rnorm(n=n,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=n,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)#
+#
+	p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)#
+#
+	if(p < 0.01){results[i]=1}#
+}
+mean(results)
+# GENERATE DATA FOR PREDICTORS ##
+	x1=rnorm(n=n,mean=m1,sd=sd1)#
+	x2=rnorm(n=n,mean=m2,sd=sd2)#
+	x3=rnorm(n=n,mean=m3,sd=sd3)#
+	x4=rnorm(n=n,mean=m4,sd=sd4)#
+	x5=rnorm(n=n,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=n,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)
+summary(full)$r.squared
+summary(reduced)$r.squared
+?pwr.f2.test
+R2f = 0.905#
+R2r = 0.889#
+f2 = (R2f-R2r)/(1-R2f)#
+#
+pwr.f2.test(u=5-3,v=n-6,f2=f2,sig.level=0.05)
+R2f = 0.905#
+R2r = 0.851#
+f2 = (R2f-R2r)/(1-R2f)#
+#
+pwr.f2.test(u=5-3,v=n-6,f2=f2,sig.level=0.05)
+R2f = 0.90#
+R2r = 0.89#
+f2 = (R2f-R2r)/(1-R2f)#
+#
+pwr.f2.test(u=5-3,v=n-6,f2=f2,sig.level=0.05)
+R2f = 0.905#
+R2r = 0.890#
+f2 = (R2f-R2r)/(1-R2f)#
+#
+pwr.f2.test(u=5-3,v=n-6,f2=f2,sig.level=0.05)
+R2f = 0.905#
+R2r = 0.895#
+f2 = (R2f-R2r)/(1-R2f)#
+#
+pwr.f2.test(u=5-3,v=n-6,f2=f2,sig.level=0.05)
+R2f = 0.905#
+R2r = 0.891#
+f2 = (R2f-R2r)/(1-R2f)#
+#
+pwr.f2.test(u=5-3,v=n-6,f2=f2,sig.level=0.05)
+## FUNCTION TO PERFORM POWER SIMULATION ###
+## INPUT:	N, SAMPLE SIZE		###
+##					###
+## OUTPUT:	EMPIRICAL POWER		###
+MLRPower = function(N=50){#
+#
+# REGRESSION COEFFICIENTS ##
+beta0 = 2.5#
+beta1 = -1.6#
+beta2 = -3#
+beta3 = 4.5#
+beta4 = 1.3#
+beta5 = -4#
+#
+# RESPONSE VARIATION ##
+sigma = 8.5#
+#
+# PREDICTORS? ##
+m1 = 5#
+sd1 = 5#
+m2 = 0#
+sd2 = 2#
+m3 = 1#
+sd3 = 6#
+m4 = 10#
+sd4 = 0.5#
+m5 = 2#
+sd5 = 1#
+#
+M = 1000#
+#
+results = rep(0,M)#
+set.seed(12345)#
+#
+for(i in 1:M)#
+{#
+	# GENERATE DATA FOR PREDICTORS ##
+	x1=rnorm(n=n,mean=m1,sd=sd1)#
+	x2=rnorm(n=n,mean=m2,sd=sd2)#
+	x3=rnorm(n=n,mean=m3,sd=sd3)#
+	x4=rnorm(n=n,mean=m4,sd=sd4)#
+	x5=rnorm(n=n,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=n,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)#
+#
+	p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)#
+#
+	if(p < 0.01){results[i]=1}#
+}#
+list(Power = mean(results))#
+}
+MLRPower(50)
+## FUNCTION TO PERFORM POWER SIMULATION ###
+## INPUT:	N, SAMPLE SIZE		###
+##					###
+## OUTPUT:	EMPIRICAL POWER		###
+MLRPower = function(N=50){#
+#
+# REGRESSION COEFFICIENTS ##
+beta0 = 2.5#
+beta1 = -1.6#
+beta2 = -3#
+beta3 = 4.5#
+beta4 = 1.3#
+beta5 = -4#
+#
+# RESPONSE VARIATION ##
+sigma = 8.5#
+#
+# PREDICTORS? ##
+m1 = 5#
+sd1 = 5#
+m2 = 0#
+sd2 = 2#
+m3 = 1#
+sd3 = 6#
+m4 = 10#
+sd4 = 0.5#
+m5 = 2#
+sd5 = 1#
+#
+M = 1000#
+#
+results = rep(0,M)#
+set.seed(12345*N)#
+#
+for(i in 1:M)#
+{#
+	# GENERATE DATA FOR PREDICTORS ##
+	x1=rnorm(n=n,mean=m1,sd=sd1)#
+	x2=rnorm(n=n,mean=m2,sd=sd2)#
+	x3=rnorm(n=n,mean=m3,sd=sd3)#
+	x4=rnorm(n=n,mean=m4,sd=sd4)#
+	x5=rnorm(n=n,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=n,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)#
+#
+	p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)#
+#
+	if(p < 0.01){results[i]=1}#
+}#
+list(Power = mean(results))#
+}
+ss_values=c(40,50,60,70,80)#
+power_values = rep(0,5)
+for(i in 1:length(ss_values))#
+{#
+	power_values[i] = MLRPower(ss_values[i])#
+}
+powerData = as.data.frame(cbind(ss_values,power_values))#
+#
+ggplot(powerData, aes(x=ss_values, y=power_values)) + #
+	geom_smooth(aes(x=ss_values, y=power_values),color='blue') + #
+	ggtitle('Plot of Power versus Sample Size') +#
+	xlab('Potential Sample Size') +#
+	ylab('Power')
+powerData
+powerData = as.data.frame(cbind(ss_values,as.vector(power_values)))
+powerData
+powerData = as.data.frame(cbind(ss_values,power_values=as.vector(power_values)))
+powerData
+ggplot(powerData, aes(x=ss_values, y=power_values)) + #
+	geom_smooth(aes(x=ss_values, y=power_values),color='blue') + #
+	ggtitle('Plot of Power versus Sample Size') +#
+	xlab('Potential Sample Size') +#
+	ylab('Power')
+powerData = as.data.frame(cbind(ss_values,power_values))
+powerData
+summary(powerData)
+summary(powerData$ss_values)
+for(i in 1:length(ss_values))#
+{#
+	power_values[i] = MLRPower(ss_values[i])$Power#
+}
+powerData = as.data.frame(cbind(ss_values,power_values))
+summary(powerData)
+ss_values
+power_values
+powerData
+as.numeric(power_values)
+powerData = as.data.frame(cbind(as.numeric(ss_values),as.numeric(power_values)))
+powerData
+summary(powerData)
+powerData = as.data.frame(cbind(ss_values=as.numeric(ss_values),power_values=as.numeric(power_values)))
+summary(powerData)
+ggplot(powerData, aes(x=ss_values, y=power_values)) + #
+	geom_smooth(aes(x=ss_values, y=power_values),color='blue') + #
+	ggtitle('Plot of Power versus Sample Size') +#
+	xlab('Potential Sample Size') +#
+	ylab('Power')
+## FUNCTION TO PERFORM POWER SIMULATION ###
+## INPUT:	N, SAMPLE SIZE		###
+##					###
+## OUTPUT:	EMPIRICAL POWER		###
+MLRPower = function(N=50){#
+#
+# REGRESSION COEFFICIENTS ##
+beta0 = 2.5#
+beta1 = -1.6#
+beta2 = -3#
+beta3 = 4.5#
+beta4 = 1.3#
+beta5 = -4#
+#
+# RESPONSE VARIATION ##
+sigma = 8.5#
+#
+# PREDICTORS? ##
+m1 = 5#
+sd1 = 5#
+m2 = 0#
+sd2 = 2#
+m3 = 1#
+sd3 = 6#
+m4 = 10#
+sd4 = 0.5#
+m5 = 2#
+sd5 = 1#
+#
+M = 1000#
+#
+results = rep(0,M)#
+set.seed(12345*N)#
+#
+for(i in 1:M)#
+{#
+	# GENERATE DATA FOR PREDICTORS ##
+	x1=rnorm(n=N,mean=m1,sd=sd1)#
+	x2=rnorm(n=N,mean=m2,sd=sd2)#
+	x3=rnorm(n=N,mean=m3,sd=sd3)#
+	x4=rnorm(n=N,mean=m4,sd=sd4)#
+	x5=rnorm(n=N,mean=m5,sd=sd5)#
+#
+	# GENERATE DATA FOR REPONSE ##
+	y = rnorm(n=N,mean=beta0+beta1*x1+beta2*x2+beta3*x3+beta4*x4+beta5*x5,sd=sigma)#
+#
+	# PERFORM CHOSEN TEST, RECORD WHETHER REJECTED ##
+	full = lm(y~x1+x2+x3+x4+x5)#
+	reduced = lm(y~x1+x2+x3)#
+#
+	p = pf(q=((anova(reduced)[[2]][4] - anova(full)[[2]][6]) / 2)/(anova(full)[[3]][6]),df1=2,df2=n-6,lower.tail=FALSE)#
+#
+	if(p < 0.01){results[i]=1}#
+}#
+list(Power = mean(results))#
+}
+ss_values=c(40,50,60,70,80)#
+power_values = rep(0,5)#
+#
+for(i in 1:length(ss_values))#
+{#
+	power_values[i] = MLRPower(ss_values[i])$Power#
+}
+powerData = as.data.frame(cbind(ss_values=as.numeric(ss_values),power_values=as.numeric(power_values)))
+powerData
+ggplot(powerData, aes(x=ss_values, y=power_values)) + #
+	geom_smooth(aes(x=ss_values, y=power_values),color='blue') + #
+	ggtitle('Plot of Power versus Sample Size') +#
+	xlab('Potential Sample Size') +#
+	ylab('Power')
+?png
+library(gamlss)
+data(abdom)
+a<-gamlss(y~pb(x),sigma.fo=~pb(x,1),family=LO,data=abdom)
+summary(a)
+wp(a)
+wp(a,col='blue')
+wp(a,col='grey45')
+install.packages('AGD')
+library(AGD)
+?wp.twin
+wp.twin(a)
+wp(a)
+wp.twin(a,line=TRUE)
+wp.twin(a,line=TRUE,n.inter=1)
+wp.twin(a,line=TRUE,n.inter=1,col1='grey45')
+wp.twin(a,line=TRUE,n.inter=1,col1='grey')
+wp.twin(a,line=TRUE,n.inter=1,col1='black')
+wp.twin(a,line=TRUE,n.inter=2,col1='black')
+wp.twin(a,line=TRUE,n.inter=2,col1='grey45')
+wp.twin(a,line=TRUE,n.inter=1,col1='grey45')
+wp.twin(a,line=TRUE,n.inter=2,col1='grey45')
+install.packages("RCurl")
+library("RCurl")
+?getURL
+X = rpois(10)
+?rpois
+X = rpois(100,10)
+X
+hist(X)
+?rnorm
+Y1 = rnorm(100,mean=(2+5X),sd=2)
+?rnorm
+Y1 = rnorm(n=100,mean=(2+5*X),sd=2)
+Y1
+library(ggplot2)
+qplot(Y1,X)
+qplot(X,Y1)
+Y2 = rnorm(n=100,mean=(2+5*(X^2)),sd=2)
+qplot(X,Y2)
+?rbinom
+B1 = rbinom(n=100,size=1,prob=((exp(2+5*X))/(1+exp(2+5*X))))
+B1
+B1 = rbinom(n=100,size=1,prob=((exp(0.02+0.5*X))/(1+exp(0.02+0.5*X))))
+B1
+B1 = rbinom(n=100,size=1,prob=((exp(-0.4+0.5*X))/(1+exp(-0.4+0.5*X))))
+B1
+B1 = rbinom(n=100,size=1,prob=((exp(-1.4+0.5*X))/(1+exp(-1.4+0.5*X))))
+B1
+B1 = rbinom(n=100,size=1,prob=((exp(-3.4+0.5*X))/(1+exp(-3.4+0.5*X))))
+B1
+B1 = rbinom(n=100,size=1,prob=((exp(-4.4+0.5*X))/(1+exp(-4.4+0.5*X))))
+B1
+qplot(X,B1)
+BData = as.data.frame(cbind(X,B1))
+BData
+ggplot(BData, aes(x=X, y=B1)) + #
+	geom_bin2d(bins = 10) +#
+	scale_fill_gradientn(limits=c(0,20), breaks=seq(0,20, by=3), colours=c('grey80','grey10')) + #
+	geom_smooth(method = "glm",method.args = list(family = "binomial"),col='grey45') +#
+	theme(axis.text=element_text(size=16), axis.title=element_text(size=20), plot.title=element_text(size=22))
+B2 = rbinom(n=100,size=1,prob=((exp(-4.4+0.5*(X^2)))/(1+exp(-4.4+0.5*(X^2)))))
+B2
+B2 = rbinom(n=100,size=1,prob=((exp(-6+0.15*(X^2)))/(1+exp(-6+0.15*(X^2)))))
+B2
+B2 = rbinom(n=100,size=1,prob=((exp(-6+0.05*(X^2)))/(1+exp(-6+0.05*(X^2)))))
+B2
+B2 = rbinom(n=100,size=1,prob=((exp(-6+0.10*(X^2)))/(1+exp(-6+0.10*(X^2)))))
+B2
+B2 = rbinom(n=100,size=1,prob=((exp(-6+0.08*(X^2)))/(1+exp(-6+0.08*(X^2)))))
+B2
+BData = as.data.frame(cbind(X,B1,B2))
+ggplot(BData, aes(x=X, y=B2)) + #
+	geom_bin2d(bins = 10) +#
+	scale_fill_gradientn(limits=c(0,20), breaks=seq(0,20, by=3), colours=c('grey80','grey10')) + #
+	geom_smooth(method = "glm",method.args = list(family = "binomial"),col='grey45') +#
+	theme(axis.text=element_text(size=16), axis.title=element_text(size=20), plot.title=element_text(size=22))
+library('RCurl')
+url = 'https://server.lifedatacorp.com/index.php/DataDownload/dataDownload')#
+name = michael.phillips#
+pwd = UnCo2019
+url = 'https://server.lifedatacorp.com/index.php/DataDownload/dataDownload'
+name = getURL(url,userpwd='michael.phillips:UnCo2019',verbose=TRUE)
+sdjkhglkjshfgl
+history()
+ls()
+a = 3
+b = 4
+A = matrix(c(1,2,3,4),2,2)
+A
+history
+history()
+ls()
+A
+?data
+data()
+data = data(ChickWeight)
+?ChickWeight
+exp(9.09)
+exp(-0.69)
+exp(-0.01)
+exp(0.004)
+exp(0.30)
+exp(0.14)
+exp(-0.08)
+exp(0.03)
+?fisher.test
+arrests = matrix(c(380,9,360,6),2,2)
+arrests
+fisher.test(arrests)
+compressions = matrix(c(3,8,13,6),2,2)
+compressions
+fisher.test(compressions)
+?chisq.test
+chisq.test(arrests)
+chisq.test(compressions)
+install.packages('devtools')
+devtools::install_github("flor3652/BigD")
+?zt_irls
+?install.packages
+exp(0.064)
+20*1.066
+exp(0.143)
+30*1.154
+200*160
+5000/250000
+736-256
+480/2
+715-575
+855-575
+1695-1275
+140*3
+3655-575
+16*28
+250000-127000
+123000*0.85
+120000/0.85
+127000+142000
+0.85*300000
+-1270000
+255000-127000
+275000-127000
+exp(0.031)
+exp(0.031*4)
+0.031*4
+(1.031)^4
+(exp(0.031))^4
+1.031*1.031*1.031*1.031
+1.811*1.187
+1.15*1.17*2.16
+2018-1989
+18*28
+18*24
+18*32
+library(lme4)
+?glmer
+650+455+900+12+64*4
+78*6
+library(devtools)
+library(roxygen2)
+setwd('/Users/trent.lalonde/Documents/Research/Programs/R Packages/')
+create('ECLR')
+create('DQL')
+setwd('./ECLR/')
+document()
